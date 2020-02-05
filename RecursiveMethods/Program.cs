@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 
 namespace RecursiveMethods
 {
@@ -16,8 +17,28 @@ namespace RecursiveMethods
                 int sum = SumOfArray(tempArray);
                 Console.WriteLine($"The sum of the numbers is: {sum}");
             }
-        }
-
+            else if (userInput == 2)
+            {
+                Console.WriteLine("Enter a grade: ");
+                int grade = int.Parse(Console.ReadLine());
+                Console.WriteLine($"The grade is {Grade(grade)}.");
+            }
+            else if (userInput == 3 || userInput == 4)
+            {
+                int[] tempArray = CreateArray();
+                int sum = SumOfArray(tempArray);
+                int len = tempArray.Length;
+                int avg = AvgOfScores(sum, len);
+                Console.WriteLine($"The average is {Grade(avg)}.");
+            }
+            else if (userInput == 5)
+            {
+                nonSpecific();
+            }
+            else
+            {
+                
+            }
         // Asks for users 1st input : #1 tested 03FEB2020 14:31
         public static int ChoiceOfEquation()
         {
@@ -119,23 +140,65 @@ namespace RecursiveMethods
             return sum;
             // Returns int of the Array summed
         }
+            
+        // Sum numbers of List
+            
 
-        //// Average of numbers of Array
-        //public static int AvgOfArray(int[] avgArray)
-        //{
-        //    // Returns Avg of Array
-        //}
+        // Average of numbers of Array
+        public static int AvgOfScores(int sum, int len)
+        {
+            int avg = sum / length;
+            return avg;
+            // Returns Avg of Array
+        }
+            
+        public static void nonSpecific();
+        {
+            int numGrades = 1;
+            ConsoleWrite("Add grade: ");
+            int newScore = int.Parse(Console.ReadLine());
+            Console.WriteLine($"Average is {newScore}.");
+            do
+            {
+                Console.Write("Add new grade to continue: ");
+                int temp = int.Parse(Console.ReadLine());
+                newScore += temp;
+                numGrades++
+                int avg = newScore / numGrades
+            } while (temp = !null);
+        }
 
-        //// Fibinacci Sequence 
+            //// Fibinacci Sequence 
         //public static int Fibinacci()
         //{
         //    // Reurns 40th Fibanacci Number
         //}
 
-        //// Compare Average and return letter grade
-        //public static char letterGrade(int avg)
-        //{
-        //    // Returns Char of A, B, C, D, or F based on the score averages
-        //}
+        //// Compare Average and return letter grade, called by Main()
+        public static string Grade(int grade)
+        {
+            if (grade >= 0 && grade <= 59)
+            {
+                return "F";
+            }
+            else if (grade >= 60 && grade <= 69)
+            {
+                return "D";
+            }
+            else if (grade >= 70 && grade <= 79)
+            {
+                return "C";
+            }
+            else if (grade >= 80 && grade <= 89)
+            {
+                return "B";
+            }
+            else if (grade >= 90 && grade <= 100)
+            {
+                return "A";
+            }
+            else
+                return null;
+        }
     }
 }
